@@ -31,7 +31,13 @@
 
         atualizaRelogio();
 
-        setInterval(atualizaRelogio, 1000); // 1000 miliseconds = 1 segundo
+        const interval = setInterval(atualizaRelogio, 1000); // 1000 miliseconds = 1 segundo
+
+        // quero que o relógio pare após 10 segundos funcionando
+        setTimeout(function(){
+            clearInterval(interval);
+            alert('Acabou a pilha do relógio!');
+        }, 10000); // 10000 miliseconds = 10 segundos
     </script>
 </body>
 </html>
