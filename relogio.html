@@ -26,8 +26,12 @@
             const minuto = normalizaTempo(data.getMinutes());
             const segundo = normalizaTempo(data.getSeconds());
 
-            console.log(hora, minuto, segundo);
+            renderizaRelogio(hora, minuto, segundo);
         }
+
+        atualizaRelogio();
+
+        setInterval(atualizaRelogio, 1000); // 1000 miliseconds = 1 segundo
     </script>
 </body>
 </html>
