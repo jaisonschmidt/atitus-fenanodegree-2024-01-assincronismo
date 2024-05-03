@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+</head>
+<body>
+    <h1 id="displayRelogio">19:33:28</h1>
+
+    <script>
+        // essa função vai receber a hora, minuto e segundo e exibir dentro do H1
+        function renderizaRelogio(hora, minuto, segundo) {
+            const displayRelogio = document.querySelector('displayRelogio');
+            displayRelogio.textContent = `${hora}:${minuto}:${segundo}`;
+        }
+    </script>
+</body>
+</html>
