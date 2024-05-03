@@ -15,10 +15,18 @@
             displayRelogio.textContent = `${hora}:${minuto}:${segundo}`;
         }
 
+        function normalizaTempo(tempo) {
+            return tempo < 10 ? '0' + tempo : tempo;
+        }
+
         function atualizaRelogio() {
             const data = new Date();
 
-            console.log(data.getHours(), data.getMinutes(), data.getSeconds());
+            const hora = normalizaTempo(data.getHours());
+            const minuto = normalizaTempo(data.getMinutes());
+            const segundo = normalizaTempo(data.getSeconds());
+
+            console.log(hora, minuto, segundo);
         }
     </script>
 </body>
