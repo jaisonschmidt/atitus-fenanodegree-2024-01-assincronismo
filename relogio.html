@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relógio</title>
+
+    <style>
+        #displayRelogio {
+           background-color: black;
+           border: 10px dashed yellowgreen;
+           color: yellow;
+           padding: 20px; 
+        }
+    </style>
 </head>
 <body>
-    <h1 id="displayRelogio">19:48:01</h1>
+    <h1 id="displayRelogio"></h1>
 
     <script>
         // essa função vai receber a hora, minuto e segundo e exibir dentro do H1
@@ -34,10 +43,13 @@
         const interval = setInterval(atualizaRelogio, 1000); // 1000 miliseconds = 1 segundo
 
         // quero que o relógio pare após 10 segundos funcionando
+        
+        /*
         setTimeout(function(){
             clearInterval(interval);
             alert('Acabou a pilha do relógio!');
         }, 10000); // 10000 miliseconds = 10 segundos
+        */
     </script>
 </body>
 </html>
