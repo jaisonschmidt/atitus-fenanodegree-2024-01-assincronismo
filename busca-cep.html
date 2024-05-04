@@ -19,21 +19,31 @@
 
         <div>
             <label for="">Cidade</label>
-            <input type="text" disabled>
+            <input type="text" id="txtCidade" disabled>
         </div>
 
         <div>
             <label for="">Bairro</label>
-            <input type="text" disabled>
+            <input type="text" id="txtBairro" disabled>
         </div>
 
         <div>
             <label for="">Logradouro</label>
-            <input type="text" disabled>
+            <input type="text" id="txtLogradouro" disabled>
         </div>
     </form>
 
     <script>
+        function renderizaCep(objetoCep) {
+            const txtCidade = document.getElementById('txtCidade');
+            const txtBairro = document.getElementById('txtBairro');
+            const txtLogradouro = document.getElementById('txtLogradouro');
+
+            txtCidade.value = objetoCep.localidade;
+            txtBairro.value = objetoCep.bairro;
+            txtLogradouro.value = objetoCep.logradouro;
+        }
+
         function buscaCep(cep) {
             // chamar a api do busca CEP e exibir o resultado
             // passar o cep recebido por parametro para a API
@@ -45,12 +55,21 @@
                     return data.json();
                 })
                 .then(function(data) {
-                    console.log('Dados do CEP, agora foi!', data.logradouro);
+                    console.log('Dados do CEP, agora foi!', data);
+                    renderizaCep(data);
                 })
                 .catch(function(error){
                     console.log('Erro ao buscar CEP', error);
                 });
         }
+
+        const frmBuscaCep = document.getElementById('frmBuscaCep');
+
+        frmBuscaCep.addEventListener('submit', function(event){
+            event.preventDefault();
+            const txtCep = document.getElementById('txtCep');
+            buscaCep(txtCep.value);
+        });
     </script>
 </body>
 </html>
