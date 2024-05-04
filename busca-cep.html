@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca CEP</title>
+</head>
+<body>
+    <form id="frmBuscaCep">
+        <label for="txtCep">Campo CEP: (somente números)</label>
+        <input 
+            type="text" 
+            placeholder="Informe seu CEP" 
+            id="txtCep" 
+            minlength="8" 
+            maxlength="8"
+        >
+        <button type="submit">Buscar</button>
+
+        <div>
+            <label for="">Cidade</label>
+            <input type="text" disabled>
+        </div>
+
+        <div>
+            <label for="">Bairro</label>
+            <input type="text" disabled>
+        </div>
+
+        <div>
+            <label for="">Logradouro</label>
+            <input type="text" disabled>
+        </div>
+    </form>
+
+    <script>
+        function buscaCep(cep) {
+            // chamar a api do busca CEP e exibir o resultado
+            // passar o cep recebido por parametro para a API
+
+            const response = fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            
+            response
+                .then(function(data) {
+                    return data.json();
+                })
+                .then(function(data) {
+                    console.log('Dados do CEP, agora foi!', data.logradouro);
+                })
+                .catch(function(error){
+                    console.log('Erro ao buscar CEP', error);
+                });
+        }
+    </script>
+</body>
+</html>
